@@ -15,11 +15,13 @@ A class is like a blueprint or template. It defines the structure and behavior (
 ```
 Eg:
 class Book{
+//properties
   private int id;
   private String name;
   private String author;
   private double price;
   private String category;
+//methods
   public void acceptBook(int id,String name,String author,double price,String category){
     this.id=id;
     this.name=name;
