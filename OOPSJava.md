@@ -15,13 +15,11 @@ A class is like a blueprint or template. It defines the structure and behavior (
 ```
 Eg:
 class Book{
-//properties
   private int id;
   private String name;
   private String author;
   private double price;
   private String category;
-//methods
   public void acceptBook(int id,String name,String author,double price,String category){
     this.id=id;
     this.name=name;
@@ -205,8 +203,101 @@ This is abstraction: show what is needed, hide the rest.
 */
 ```
 
-- Inheritance
-  Allows one class (child/subclass) to inherit the properties and behaviors (fields and methods) of another class (parent/superclass). This promotes code reuse. For example, a Dog class can inherit from an Animal class.
+## Inheritance
+
+A feature in object-oriented programming where a class (child) inherits properties and methods from another class (parent), enabling code reuse and logical hierarchy.
+Example: Dog inherits from Animal.
+
+```
+class Animal{
+  public void eat(){
+    System.out.println("Eating...");
+  }
+}
+class Dog extends Animal{
+  public void sound(){
+    System.out.println("Dog Barking...");
+  }
+}
+class Main{
+  public static void main(String[] args){
+    //commonly create object of child class
+    Dog a1=new Dog();
+    a1.eat();
+    a1.sound();
+  }
+}
+```
+
+## Types of Inheritance
+
+## Single Inheritance
+
+One subclass inherits from one superclass.
+
+```
+class Animal{
+  public void eat(){
+    System.out.println("Eating...");
+  }
+}
+class Dog extends Animal{
+  public void sound(){
+    System.out.println("Dog Barking...");
+  }
+}
+class Main{
+  public static void main(String[] args){
+    //commonly create object of child class
+    Dog a1=new Dog();
+    a1.eat();
+    a1.sound();
+  }
+}
+```
+
+## Multilevel Inheritance
+
+When a class inherits from a class, which itself inherits from another class.
+
+```
+class GrandFather{
+  public String property="House";
+  public GrandFather(){
+    System.out.println("GrandFather:");
+    System.out.println("Build House.");
+  }
+}
+
+class Father extends GrandFather{
+  public String car="ford mustang";
+  public Father(){
+    System.out.println("Father:");
+    System.out.println("inherits:"+super.property);
+    System.out.println("Bought:"+this.car);
+  }
+}
+
+class Son extends Father{
+  public Son(){
+    System.out.println("Son:");
+    System.out.println("inherits:"+super.property);
+    System.out.println("inherits:"+super.car);
+  }
+}
+
+class Main{
+  public static void main(String[] args){
+    //commonly create object of child class
+    Son son=new Son();
+  }
+}
+```
+
+## Hierarchical Inheritance
+
+Multiple subclasses inherit from a single superclass.
+
 - Polymorphism
   Means “many forms.” It allows objects to be treated as instances of their parent class rather than their actual class. Java supports:
 - Compile-time polymorphism (method overloading)
