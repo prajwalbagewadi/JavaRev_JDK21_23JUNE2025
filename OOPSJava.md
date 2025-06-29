@@ -298,6 +298,98 @@ class Main{
 
 Multiple subclasses inherit from a single superclass.
 
+```
+class BankAccount{
+  String accountNumber;
+  double balance;
+  public void deposit(double amount){
+    this.balance+=amount;
+    System.out.println("Deposited:"+amount);
+  }
+  public void displayBalance(){
+    System.out.println("balance:"+this.balance);
+  }
+}
+
+//Derived class 1
+class SavingsAccount extends BankAccount{
+  double interestRate=0.03;
+  public void addInterest(){
+    double interest=super.balance*interestRate;
+    super.balance+=interest;
+    System.out.println("Interest added:"+interest);
+  }
+}
+
+//Derived class 2
+class CurrentAccount extends BankAccount{
+  double overDraftLimit=1000000;
+  public void withDraw(double amount){
+    if(super.balance+overDraftLimit>=amount){
+      balance-=amount;
+      System.out.println("withdrawn:"+amount);
+    } else{
+      System.out.println("overDraftLimit Exceeded.");
+    }
+  }
+}
+
+//Derived class 3
+class FixedDepositAccount extends BankAccount{
+  int durationInMonths;
+  double interestRate=0.065;
+  double amount;
+  int n = 12; // monthly compounding
+  int timeInYears;
+  public void setDuration(int months){
+    durationInMonths=months;
+    timeInYears=durationInMonths/12;
+    System.out.println("FD duration set to:"+months+"months");
+    amount=super.balance*Math.pow((1+(interestRate/n)),n*timeInYears);
+    System.out.printf("Maturatity Amount:%.2f\n",amount);
+  }
+}
+public class Main{
+  public static void main(String[] args){
+    SavingsAccount sa=new SavingsAccount();
+    sa.deposit(5000);
+    sa.addInterest();
+    sa.displayBalance();
+
+    CurrentAccount ca=new CurrentAccount();
+    ca.deposit(3000);
+    ca.withDraw(2500);
+    ca.displayBalance();
+
+    FixedDepositAccount fda=new FixedDepositAccount();
+    fda.deposit(5000);
+    fda.setDuration(12);
+    fda.displayBalance();
+  }
+}
+/*
+super.balance+overDraftLimit>=amount
+Example:
+Suppose:
+balance = ₹2000
+overdraftLimit = ₹1000
+amount = ₹2500
+
+Then:
+balance + overdraftLimit = 2000 + 1000 = 3000
+
+Check:
+3000 >= 2500 ✅  // true → withdrawal allowed
+
+amount=4000
+if (3000 >= 4000) // false
+*/
+```
+
+## Multiple Inheritance
+
+Java does not allow multiple inheritance with classes to avoid ambiguity, but it does allow multiple inheritance using interfaces.
+
 - Polymorphism
   Means “many forms.” It allows objects to be treated as instances of their parent class rather than their actual class. Java supports:
 - Compile-time polymorphism (method overloading)
