@@ -48,3 +48,14 @@ public class SystemMonitor {
     }
 }
 ```
+## do-while
+
+The do-while loop in Java is used when you want a block of code to run at least once, and then repeat based on a condition.
+
+- The code block runs first.
+
+- Then the condition is checked.
+
+- If the condition is true, the loop repeats.
+
+- If false, the loop stops.
