@@ -121,3 +121,17 @@ public class Main {
     }
 }
 ```
+## foreach loop
+
+A for-each loop is a simplified way to loop through elements in a collection (like arrays, lists) without using index numbers.
+
+```
+public class Main{
+    public static void main(String[] args) {
+        String[] basket={"strawberry🍓","mango🥭","cherry🍒","pineapple🍍"};
+        for(String item:basket){
+            System.out.println("item in basket:"+item);
+        }
+    }
+}
+```
