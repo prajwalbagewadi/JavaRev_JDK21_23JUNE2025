@@ -48,6 +48,7 @@ public class SystemMonitor {
     }
 }
 ```
+
 ## do-while
 
 The do-while loop in Java is used when you want a block of code to run at least once, and then repeat based on a condition.
@@ -59,3 +60,64 @@ The do-while loop in Java is used when you want a block of code to run at least 
 - If the condition is true, the loop repeats.
 
 - If false, the loop stops.
+
+```
+import java.util.Scanner;
+public class Main {
+    public static Scanner sc;
+    public static int check_login(){
+        sc=new Scanner(System.in);
+        int check=0;
+        System.out.println("Enter password:");
+        String pass=sc.next();
+        if(pass.equals("admin@123")){
+            check=1;
+            System.out.println("login successful.");
+        }
+        return check;
+    }
+    public static void main(String[] args) {
+        int tries=3;
+        int is_LoggedIn=0;
+        do{
+            is_LoggedIn=check_login();
+            if(is_LoggedIn==0){
+                tries--;
+                System.out.println("attempts remaining:"+tries);
+
+            }
+        }while(is_LoggedIn==0 && tries >=1);
+
+        if(is_LoggedIn==0){
+            System.out.println("too many attempts your locked out.");
+        }
+    }
+}
+
+```
+
+## for loop
+
+A for loop is a control structure used to repeat a block of code a fixed number of times.
+
+```
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        for (int i=3;i>=1;i--){
+            System.out.println("Login attempts remaining:"+i+" Enter password:");
+            String pass=sc.next();
+            if(pass.equals("toor")){
+                System.out.println("login Successful.");
+                break;
+            }else{
+                System.err.println("failed try again.");
+                if(i==1){
+                    System.out.println("too many attempts your locked out.");
+                }
+            }
+        }
+    }
+}
+```
