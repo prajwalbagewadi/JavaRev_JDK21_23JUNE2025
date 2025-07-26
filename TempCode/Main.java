@@ -1,18 +1,18 @@
 
-import java.util.Scanner;
-
 public class Main{
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int[] numbers = new int[5];
-        System.out.println("Enter Elements in array:");
-        for(int i=0;i<numbers.length;i++){
-            System.out.println("Enter the Element:");
-            numbers[i]=sc.nextInt();
+        int[] arr = {47,86,15,62,99};
+        int max=arr[0],min=arr[0];
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]>max) {
+                max=arr[i];
+            }
+            if(arr[i]<min) {
+                min=arr[i];
+            }
         }
-        System.out.println("Elements in Array:");
-        for(int num : numbers){
-            System.out.println("num:"+num);
-        }
+        System.out.println("max="+max);
+        System.out.println("min="+min);
     }
 }
+
