@@ -16,11 +16,11 @@ Maximum element is: 35
 
 ## Algorithm:
 
-- create two variables max and min, init both max and min to arr[0].
-- use a for (i=0;i<arr.length;i++) to traverse the array.
-- check if(arr[i]>max) {set max=arr[i]}
-- check if(arr[i]<min) {set min=arr[i]}
-- print and view max and min after the loop ends.
+- 1.create two variables max and min, init both max and min to arr[0].
+- 2.use a for (i=0;i<arr.length;i++) to traverse the array.
+- 3.check if(arr[i]>max) {set max=arr[i]}
+- 4.check if(arr[i]<min) {set min=arr[i]}
+- 5.print and view max and min after the loop ends.
 
 ## Code:
 

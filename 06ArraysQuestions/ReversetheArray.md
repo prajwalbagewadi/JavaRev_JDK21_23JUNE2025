@@ -14,17 +14,26 @@ Explanation: The first element 4 moves to last position, the second element 5 mo
 
 ## Algorithm:
 
+- 1. initialize low=0,mid=array.length/2,high=array.length-1
+- 2. check if array length is odd or even
+- 3. if odd while low is less than mid and mid is less than high
+- 4. swap array[low] and array[high]
+- 5. increament low and decreament high
+- 6. else even while low is less than equal to mid and mid is less than equal to high
+- 7. swap array[low] and array[high], swaps the center two elements as well.
+- 8. increament low and decreament high
+
 ## Code:
 
 ```
 import static java.lang.System.out;
 public class Main{
     public static void arrRev(int[] arr){
+        int low = 0;
+        int mid = arr.length/2;
+        int high = arr.length-1;
         if(arr.length%2!=0) {
             out.println("arr length is odd:"+arr.length);
-            int low = 0;
-            int mid = arr.length/2;
-            int high = arr.length-1;
             out.println("mid="+mid);
             while(low<mid && mid<high) {
                 out.println("low="+low);
@@ -37,9 +46,6 @@ public class Main{
             }
         } else {
             out.println("\n arr length is even:"+arr.length);
-            int low = 0;
-            int mid = arr.length/2;
-            int high = arr.length-1;
             out.println("mid="+mid);
             while(low<=mid && mid<=high) {
                 out.println("low="+low);
